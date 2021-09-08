@@ -175,6 +175,48 @@ print(f'Valorización acumulada del terreno en 3 años: '
       f'${valor_valorizacion_anio:,}')
 print(respuesta_comprador)
 
+# 6. En una fábrica de computadoras se planea ofrecer a los clientes un
+# descuento que dependerá del número de computadoreas que
+# compre. Si las computadoras son menos de cinco se les dará un 10%
+# de descuento sobre el total de la compra; si el número de
+# computadoras es mayor o igual a cinco pero menos de diez se le
+# otorga un 20% de descuento; y si son 10 o más se les da un 40%. El
+# precio de cada computadora es de $11.000.
+
+
+print('\n---------- DESCUENTO EN VENTA DE COMPUTADORES ----------\n')
+
+num_pc = int(input('Ingrese cantidad de computadoras de la compra: '))
+descuento_uno = 10/100
+descuento_dos = 20/100
+descuento_tres = 40/100
+precio_pc = 11000
+descuento = 0
+precio_total = 0
+precio_bruto = num_pc * precio_pc
+descuento_aplicado = 0
+if(num_pc > 0):
+    if(num_pc < 5):
+        descuento = precio_bruto * descuento_uno
+        descuento_aplicado = descuento_uno
+    elif(num_pc >= 5 and num_pc < 10):
+        descuento = precio_bruto * descuento_dos
+        descuento_aplicado = descuento_dos
+    else:
+        descuento = precio_bruto * descuento_tres
+        descuento_aplicado = descuento_tres
+    precio_total = precio_bruto - descuento
+    print('\n---------- RESUMEN DE VENTA DE COMPUTADORES ----------\n')
+    print(f'La cantidad de computadores vendidos es: {num_pc}')
+    print(f'El descuento apliado es del {descuento_aplicado * 100}%, '
+          f'y su monto es de: ${descuento:,}')
+    print(f'El precio de los computadores antes de descuento es: '
+          f'${precio_bruto:,}')
+    print(f'El precio de los computadores con descuento es: ${precio_total:,}')
+else:
+    print('La cantidad de computadores a vender debe ser mayor a 0')
+
+
 
 
 
