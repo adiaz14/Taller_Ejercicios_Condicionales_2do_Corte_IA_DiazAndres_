@@ -99,6 +99,43 @@ print(f'Valor de la fianza del cliente: ${finaza:,}')
 print(f'Porcentaje cuota: {porcentaje:,}%')
 print(f'Monto a pagar por el cliente: ${monto_pagar:,}')
 
+# 4. Una fábrica ha sido sometida a un programa de control de
+# contaminación para lo cual se efectúa una revisión de los puntos de
+# contaminación generados por la fábrica. El programa de control de
+# contaminación consiste en medir los puntos que emite la fábrica en
+# cinco días de una semana y si el promedio es superior a los 170
+# puntos entonces tendrá la sanción de parar su producción por una
+# semana y una multa del 50% de las ganancias diarias cuando no se
+# detiene la producción. Si el promedio obtenido de puntos es de 170 o
+# menos entonces no tendrá ni sanción ni multa. El dueño de la fábrica
+# desea saber cuanto dinero perderá después de ser sometido a la
+# revisión.
+
+print('\n---------- AUDITORÍA DE CONTROL DE CONTAMINACIÓN ----------\n')
+
+ganancias = float(input('Ingrese valor de las ganancias diarias de '
+                        'la fábrica: '))
+multa = 0
+ganancia_total = 0
+acumulado = 0
+dias_evaluacion = 5
+contaminacion = 0
+
+for dia in range(dias_evaluacion):
+    puntos = float(input(f'Ingrese puntos de contaminación del día {dia + 1} '
+                         f'de la evaluación: '))
+    acumulado += puntos
+contaminacion = acumulado / 5
+
+print('\n-------- RESUMEN DE AUDITORÍA DE CONTROL DE CONTAMINACIÓN --------\n')
+print(f'Las ganancias diarios de la fabrica son: ${ganancias:,}')
+print(f'El promedio de puntos de contaminación es: {contaminacion}')
+if(contaminacion > 170):
+    multa = ganancias * 50 / 100
+    print(f'La empresa no supero la prueba de contaminación, '
+          f'fue multada por un monto de: ${multa:,}')
+else:
+    print('La empresa supero la prueba de contaminación, no fue multada.')
 
 
 
