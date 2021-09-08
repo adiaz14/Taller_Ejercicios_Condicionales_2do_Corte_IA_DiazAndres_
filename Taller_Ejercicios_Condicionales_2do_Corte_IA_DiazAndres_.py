@@ -334,7 +334,7 @@ else:
 # 9. Leer 2 números; si son iguales que lo multiplique, si el primero es
 # mayor que el segundo que los reste y sino que los sume.
 
-print('\n---------- LECTURA Y COMPARATIVO DE NÚMEROS ----------\n')
+print('\n-------- LECTURA Y COMPARATIVO DE NÚMEROS (OPERACIONES) --------\n')
 
 numero_uno = float(input('Ingrese primer número: '))
 numero_dos = float(input('Ingrese segundo número: '))
@@ -351,8 +351,26 @@ else:
     respuesta = "suma de "
 print(f'\nLa {respuesta} {numero_uno} y {numero_dos} es: {resultado}')
 
+# 10. Leer tres números diferentes e imprimir el número mayor de los tres.
 
+print('\n-------- LECTURA Y COMPARATIVO DE NÚMEROS (IMPRIMIR MAYOR)--------\n')
 
+numero_uno = float(input('Ingrese primer número: '))
+numero_dos = float(input('Ingrese segundo número: '))
+numero_tres = float(input('Ingrese tercer número: '))
+numero_mayor = 0
+if(numero_uno != numero_dos != numero_tres):
+    if((numero_uno > numero_dos) and (numero_uno > numero_tres)):
+        print(f'\nEl primer número ingresado es el mayor, es decir, el número '
+              f'{numero_uno}')
+    elif((numero_dos > numero_uno) and (numero_dos > numero_tres)):
+        print(f'\nEl segundo número ingresado es el mayor, es decir, el número'
+              f' {numero_dos}')
+    else:
+        print(f'\nEl tercer número ingresado es el mayor, es decir, el número '
+              f'{numero_tres}')
+else:
+    print('\nLos 3 números ingresados deben ser diferentes.')
 
 
 
