@@ -300,7 +300,7 @@ else:
 
 print('\n---------- ANÁLISIS PARA LA COMPRA DE REFACCIONES ----------\n')
 
-monto_compra = int(input('Ingrese monto total de la compra de piezas: '))
+monto_compra = float(input('Ingrese monto total de la compra de piezas: '))
 monto_inversion = 0
 monto_prestamo_bancario = 0
 monto_credito = 0
@@ -330,8 +330,26 @@ if(monto_compra > 0):
         print(f'Monto de interéses por pago a crédito: ${monto_interes:,}')
 else:
     print('\nEl monto de la compra de piezas debe ser mayor a cero.')
-    
 
+# 9. Leer 2 números; si son iguales que lo multiplique, si el primero es
+# mayor que el segundo que los reste y sino que los sume.
+
+print('\n---------- LECTURA Y COMPARATIVO DE NÚMEROS ----------\n')
+
+numero_uno = float(input('Ingrese primer número: '))
+numero_dos = float(input('Ingrese segundo número: '))
+resultado = 0
+respuesta = ""
+if(numero_uno == numero_dos):
+    resultado = numero_uno * numero_dos
+    respuesta = "multiplicación de "
+elif(numero_uno > numero_dos):
+    resultado = numero_uno - numero_dos
+    respuesta = "resta de "
+else:
+    resultado = numero_uno + numero_dos
+    respuesta = "suma de "
+print(f'\nLa {respuesta} {numero_uno} y {numero_dos} es: {resultado}')
 
 
 
