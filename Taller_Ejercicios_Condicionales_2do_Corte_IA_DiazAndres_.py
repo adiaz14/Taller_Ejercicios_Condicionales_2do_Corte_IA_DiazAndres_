@@ -285,6 +285,62 @@ else:
     print('\nLa cantidad de artículos y su precio deben ser mayor a 0, asi '
           'mismo la marca debe ser diferente de vacio.')
 
+# 8. Una empresa quiere hacer una compra de varias piezas de la misma
+# clase a una fábrica de refacciones. La empresa, dependiendo del
+# monto total de la compra, decidirá que hacer para pagar al fabricante.
+# Si el monto total de la compra excede de $500.000 la empresa tendrá
+# la capacidad de invertir de su propio dinero un 55% del monto de la
+# compra, pedir prestado al banco un 30% y el resto lo pagará
+# solicitando un crédito al fabricante. Si el monto total de la compra no
+# excede de $500.00 la empresa tendrá capacidad de invertir de su
+# propio dinero un 70% y el restante 30% lo pagará solicitando crédito
+# al fabricante. El fabricante cobra por concepto de interes un 20%
+# sobre la cantidad que se le pague a crédito. Obtener la cantidad a
+# inverir, valor del préstamo, valor del crédito y los intereses.
+
+print('\n---------- ANÁLISIS PARA LA COMPRA DE REFACCIONES ----------\n')
+
+monto_compra = int(input('Ingrese monto total de la compra de piezas: '))
+monto_inversion = 0
+monto_prestamo_bancario = 0
+monto_credito = 0
+monto_interes = 0
+if(monto_compra > 0):
+    if(monto_compra >= 500000):
+        monto_inversion = monto_compra * 0.55
+        monto_prestamo_bancario = monto_compra * 0.30
+        monto_credito = monto_compra * 0.15
+        monto_interes = monto_credito * 0.20
+        print('\n-------- RESUMEN DE ANÁLISIS PARA LA COMPRA DE REFACCIONES '
+              '--------\n')
+        print(f'Monto total del la compra: ${monto_compra:,}')
+        print(f'Monto de inversión sobre la compra: ${monto_inversion:,}')
+        print(f'Monto del préstamo bancario: ${monto_prestamo_bancario:,}')
+        print(f'Monto del pago a crédito: ${monto_credito:,}')
+        print(f'Monto de interéses por pago a crédito: ${monto_interes:,}')
+    else:
+        monto_inversion = monto_compra * 0.70
+        monto_credito = monto_compra * 0.30
+        monto_interes = monto_credito * 0.20
+        print('\n-------- RESUMEN DE ANÁLISIS PARA LA COMPRA DE REFACCIONES '
+              '--------\n')
+        print(f'Monto total del la compra: ${monto_compra:,}')
+        print(f'Monto de inversión sobre la compra: ${monto_inversion:,}')
+        print(f'Monto del pago a crédito: ${monto_credito:,}')
+        print(f'Monto de interéses por pago a crédito: ${monto_interes:,}')
+else:
+    print('\nEl monto de la compra de piezas debe ser mayor a cero.')
+    
+
+
+
+
+
+
+
+
+
+
     
 
 
