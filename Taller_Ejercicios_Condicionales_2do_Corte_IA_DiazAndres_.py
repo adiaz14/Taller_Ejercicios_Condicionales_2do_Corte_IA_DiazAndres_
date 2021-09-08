@@ -216,6 +216,105 @@ if(num_pc > 0):
 else:
     print('La cantidad de computadores a vender debe ser mayor a 0')
 
+# 7. Un proveedor de estéreos ofrece un descuento del 10% sobre el
+# precio sin IVA, de algún aparato si este cuesta $2000 o más. Además,
+# independientemente de esto, ofrece un 5% de descuento si la marca
+# es NOSY. Determinar cuanto pagará, con IVA incluido, un cliente
+# cualquiera por la compra de su aparato. IVA es del 16%.
+
+print('\n---------- DESCUENTO EN VENTA DE ESTÉREOS ----------\n')
+
+num_productos = int(input('Ingrese cantidad de estéreos de la compra: '))
+precio_producto = float(input('Ingrese el precio de los estéreos: '))
+marca_producto = input('Ingrese la marca del estéreo estéreos: ').upper()
+val_desc_precio = 0
+val_desc_marca = 0
+descuento_precio = 10/100
+descuento_marca = 5/100
+iva = num_productos * precio_producto * 16/100
+precio_total = 0
+total_descuento = 0
+if(num_productos > 0 and precio_producto > 0 and marca_producto != ""):
+    if(precio_producto < 2000 and marca_producto != "NOSY"):
+        precio_total = (num_productos * precio_producto) + iva
+        print('\n---------- RESUMEN DE VENTA DE ESTÉREOS ----------\n')
+        print('El cliente no obtuvo ningun tipo de descuentos')
+        print(f'Cantidad de estéreos de la compra: {num_productos}')
+        print(f'Precio unitario de los estéreos: ${precio_producto:,}')
+        print(f'Marca de los estéreos: {marca_producto}')
+        print(f'El Iva del 16% es: ${iva:,}')
+        print(f'El total de la compra más Iva es: ${precio_total:,}')
+    elif(precio_producto >= 2000 and marca_producto.upper() == "NOSY"):
+        val_desc_precio = (num_productos * precio_producto) * descuento_precio
+        val_desc_marca = (num_productos * precio_producto) * descuento_marca
+        total_descuento = val_desc_precio + val_desc_marca
+        precio_total = (num_productos * precio_producto)-total_descuento + iva
+        print('\n---------- RESUMEN DE VENTA DE ESTÉREOS ----------\n')
+        print('El cliente obtuvo descuentos por precio y marca comprada')
+        print(f'Cantidad de estéreos de la compra: {num_productos}')
+        print(f'Precio unitario de los estéreos: ${precio_producto:,}')
+        print(f'Marca de los estéreos: {marca_producto}')
+        print(f'El Iva del 16% es: ${iva:,}')
+        print(f'El descuento del 10% por precio es: ${val_desc_precio:,}')
+        print(f'El descuento del 5% por marca es: ${val_desc_marca:,}')
+        print(f'El descuento total es: ${total_descuento:,}')
+        print(f'El total de la compra más Iva es: ${precio_total:,}')
+    elif(precio_producto >= 2000 and marca_producto.upper() != "NOSY"):
+        val_desc_precio = (num_productos * precio_producto) * descuento_precio
+        precio_total = (num_productos * precio_producto)-val_desc_precio + iva
+        print('\n---------- RESUMEN DE VENTA DE ESTÉREOS ----------\n')
+        print('El cliente obtuvo descuentos por precio')
+        print(f'Cantidad de estéreos de la compra: {num_productos}')
+        print(f'Precio unitario de los estéreos: ${precio_producto:,}')
+        print(f'Marca de los estéreos: {marca_producto}')
+        print(f'El Iva del 16% es: ${iva:,}')
+        print(f'El descuento del 10% por precio es: ${val_desc_precio:,}')
+        print(f'El total de la compra más Iva es: ${precio_total:,}')
+    else:
+        val_desc_marca = (num_productos * precio_producto) * descuento_marca
+        precio_total = (num_productos * precio_producto)-val_desc_marca + iva
+        print('\n---------- RESUMEN DE VENTA DE ESTÉREOS ----------\n')
+        print('El cliente obtuvo descuentos por marca')
+        print(f'Cantidad de estéreos de la compra: {num_productos}')
+        print(f'Precio unitario de los estéreos: ${precio_producto:,}')
+        print(f'Marca de los estéreos: {marca_producto}')
+        print(f'El Iva del 16% es: ${iva:,}')
+        print(f'El descuento del 5% por precio es: ${val_desc_marca:,}')
+        print(f'El total de la compra más Iva es: ${precio_total:,}')
+else:
+    print('\nLa cantidad de artículos y su precio deben ser mayor a 0, asi '
+          'mismo la marca debe ser diferente de vacio.')
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
