@@ -71,6 +71,33 @@ print(f'El número del sorteo es {num_sorteo}, este {resultado}')
 print(f'Valor del descuento: ${descuento:,}')
 print(f'Precio total con descuento: ${precio_total:,}')
 
+# 3. Una compañía de seguros está abriendo un departamento de
+# finanzas y estableció un programa para captar clientes, que consite
+# en lo siguiente: Si el monto por el que se efectúa la fianza es menor
+# que $50.000 la cuota a pagar será por el 3% del monto, y si el monto
+# es mayor que $50.000 la cuota a pagar será el 2% del monto. La
+# afianzadora desea determinar cual será la cuota que debe pagar al
+# cliente.
+
+print('\n---------- COMPAÑIA DE SEGUROS ----------\n')
+
+finaza = float(input('Ingrese valor de la fianza: '))
+
+monto_pagar = 0
+porcentaje_cuota_uno = 2/100
+porcentaje_cuota_dos = 3/100
+porcentaje = 0
+
+if(finaza < 50000):
+    monto_pagar = finaza * porcentaje_cuota_dos
+    porcentaje = porcentaje_cuota_dos * 100
+else:
+    monto_pagar = finaza * porcentaje_cuota_uno
+    porcentaje = porcentaje_cuota_uno * 100
+print('\n---------- RESUMEN DEL ESTUDIO DE FINANZA ----------\n')
+print(f'Valor de la fianza del cliente: ${finaza:,}')
+print(f'Porcentaje cuota: {porcentaje:,}%')
+print(f'Monto a pagar por el cliente: ${monto_pagar:,}')
 
 
 
