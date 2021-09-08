@@ -137,6 +137,43 @@ if(contaminacion > 170):
 else:
     print('La empresa supero la prueba de contaminación, no fue multada.')
 
+# 5. Una persona se encuentra con un problema de comprar un automóvil
+# o un terreno, los cuales cuestan exactamente lo mismo. Sabe que
+# mientras el automóvil se devalúa, con el terreno sucede lo contrario.
+# Esta persona comprará el automóvil si al cabo de tres años la
+# devaluación de este no es mayor que la mitad del incremento del valor
+# del terreno. Ayúdale a esta pesona a determinar si debe o no comprar
+# el automóvil.
+
+print('\n---------- COMPRA DE AUTOMÓVIL O TERRENO ----------\n')
+
+valor_bien = float(input('Ingrese valor del bien: '))
+tasa_devaluacion = float(input('Ingrese porcentaje de devaluación del'
+                               ' automóvil: '))
+tasa_valorizacion = float(input('Ingrese porcentaje de valorización'
+                                ' del terreno: '))
+
+bien_devaluado = 0
+bien_valorizado = 0
+valor_devaluacion_anio = valor_bien * tasa_devaluacion / 100
+valor_valorizacion_anio = valor_bien * tasa_valorizacion / 100
+respuesta_comprador = ""
+
+valor_devaluacion_anio = valor_devaluacion_anio * 3
+valor_valorizacion_anio = valor_valorizacion_anio * 3
+
+if(valor_devaluacion_anio < (valor_valorizacion_anio/2)):
+    respuesta_comprador = "El comprador debe adquirir el automóvil."
+else:
+    respuesta_comprador = "El comprador debe adquirir el terreno."
+
+print('\n---------- RESULTADOS DEL ANÁLISIS DE COMPRA DE BIENES ----------\n')
+print(f'El valor de los bienes es ${valor_bien:,}, respectivamente.')
+print(f'Devaluación acumulada del automóvil en 3 años: '
+      f'${valor_devaluacion_anio:,}')
+print(f'Valorización acumulada del terreno en 3 años: '
+      f'${valor_valorizacion_anio:,}')
+print(respuesta_comprador)
 
 
 
