@@ -19,7 +19,6 @@ num_camisas = int(input('Ingrese cantidad de camisas a comprar: '))
 precio_unitario = float(input('Ingrese el precio de las camisas: '))
 
 descuento = 0
-precio_bruto = 0
 precio_total = 0
 descuento_uno = 10/100
 descuento_dos = 30/100
@@ -33,7 +32,7 @@ if(num_camisas > 0 and precio_unitario > 0):
         descuento = num_camisas * precio_unitario * descuento_dos
         precio_total = precio_bruto - descuento
     print('\n---------- RESUMEN DE VENTA DE CAMISAS ----------\n')
-    print(f'Número de camisas: {num_camisas}')
+    print(f'Número de camisas compradas: {num_camisas}')
     print(f'Precio unitario: ${precio_unitario:,}')
     print(f'Precio total antes de descuento: ${precio_bruto:,}')
     print(f'Valor del descuento: ${descuento:,}')
@@ -49,7 +48,7 @@ else:
 
 
 print('\n---------- SORTEO DE DESCUENTOS ----------\n')
-valor_compra = float(input('Ingrese valor de la compra: '))
+valor_compra = float(input('Ingrese el valor de la compra: '))
 num_sorteo = random.randint(0, 100)
 descuento = 0
 precio_total = 0
@@ -81,23 +80,26 @@ print(f'Precio total con descuento: ${precio_total:,}')
 
 print('\n---------- COMPAÑIA DE SEGUROS ----------\n')
 
-finaza = float(input('Ingrese valor de la fianza: '))
+fianza = float(input('Ingrese el valor de la fianza: '))
 
 monto_pagar = 0
 porcentaje_cuota_uno = 2/100
 porcentaje_cuota_dos = 3/100
 porcentaje = 0
 
-if(finaza < 50000):
-    monto_pagar = finaza * porcentaje_cuota_dos
-    porcentaje = porcentaje_cuota_dos * 100
+if(fianza > 0):
+    if(fianza < 50000):
+        monto_pagar = fianza * porcentaje_cuota_dos
+        respuesta = "El porcentaje de la cuota es del 3%"
+    else:
+        monto_pagar = fianza * porcentaje_cuota_uno
+        respuesta = "El porcentaje de la cuota es del 2%"
+    print('\n---------- RESUMEN DEL ESTUDIO DE FINANZA ----------\n')
+    print(f'Valor de la fianza del cliente: ${fianza:,}')
+    print(respuesta)
+    print(f'Monto a pagar por el cliente: ${monto_pagar:,}')
 else:
-    monto_pagar = finaza * porcentaje_cuota_uno
-    porcentaje = porcentaje_cuota_uno * 100
-print('\n---------- RESUMEN DEL ESTUDIO DE FINANZA ----------\n')
-print(f'Valor de la fianza del cliente: ${finaza:,}')
-print(f'Porcentaje cuota: {porcentaje:,}%')
-print(f'Monto a pagar por el cliente: ${monto_pagar:,}')
+    print('\nEl monto de la fianza debe ser mayor a cero.')
 
 # 4. Una fábrica ha sido sometida a un programa de control de
 # contaminación para lo cual se efectúa una revisión de los puntos de
@@ -121,21 +123,26 @@ acumulado = 0
 dias_evaluacion = 5
 contaminacion = 0
 
-for dia in range(dias_evaluacion):
-    puntos = float(input(f'Ingrese puntos de contaminación del día {dia + 1} '
-                         f'de la evaluación: '))
-    acumulado += puntos
-contaminacion = acumulado / 5
+if(ganancias > 0):
+    for dia in range(dias_evaluacion):
+        puntos = float(input(f'Ingrese puntos de contaminación del día '
+                             f'{dia + 1} de la evaluación: '))
+        acumulado += puntos
+    contaminacion = acumulado / 5
 
-print('\n-------- RESUMEN DE AUDITORÍA DE CONTROL DE CONTAMINACIÓN --------\n')
-print(f'Las ganancias diarios de la fabrica son: ${ganancias:,}')
-print(f'El promedio de puntos de contaminación es: {contaminacion}')
-if(contaminacion > 170):
-    multa = ganancias * 50 / 100
-    print(f'La empresa no supero la prueba de contaminación, '
-          f'fue multada por un monto de: ${multa:,}')
+    print('\n------ RESUMEN DE AUDITORÍA DE CONTROL DE CONTAMINACIÓN ------\n')
+    print(f'Las ganancias diarios de la fabrica son: ${ganancias:,}')
+    print(f'El promedio de puntos de contaminación es: {contaminacion}')
+    if(contaminacion > 170):
+        multa = ganancias * 50 / 100
+        print(f'La empresa no supero la prueba de contaminación, '
+              f'fue multada por un monto de: ${multa:,} y debe detener sus '
+              f'operaciones durante una semana.')
+    else:
+        print('La empresa supero la prueba de contaminación, '
+              'no será multada, ni detendrá las operaciones. ')
 else:
-    print('La empresa supero la prueba de contaminación, no fue multada.')
+    print('\nLas ganancias de la compañia deben ser mayores a cero.')
 
 # 5. Una persona se encuentra con un problema de comprar un automóvil
 # o un terreno, los cuales cuestan exactamente lo mismo. Sabe que
@@ -147,7 +154,7 @@ else:
 
 print('\n---------- COMPRA DE AUTOMÓVIL O TERRENO ----------\n')
 
-valor_bien = float(input('Ingrese valor del bien: '))
+valor_bien = float(input('Ingrese valor del bien (auto / terreno): '))
 tasa_devaluacion = float(input('Ingrese porcentaje de devaluación del'
                                ' automóvil: '))
 tasa_valorizacion = float(input('Ingrese porcentaje de valorización'
@@ -159,21 +166,25 @@ valor_devaluacion_anio = valor_bien * tasa_devaluacion / 100
 valor_valorizacion_anio = valor_bien * tasa_valorizacion / 100
 respuesta_comprador = ""
 
-valor_devaluacion_anio = valor_devaluacion_anio * 3
-valor_valorizacion_anio = valor_valorizacion_anio * 3
+if(valor_bien > 0 and tasa_devaluacion > 0 and tasa_valorizacion > 0):
+    valor_devaluacion_anio = valor_devaluacion_anio * 3
+    valor_valorizacion_anio = valor_valorizacion_anio * 3
 
-if(valor_devaluacion_anio < (valor_valorizacion_anio/2)):
-    respuesta_comprador = "El comprador debe adquirir el automóvil."
+    if(valor_devaluacion_anio < (valor_valorizacion_anio/2)):
+        respuesta_comprador = "El comprador debe adquirir el automóvil."
+    else:
+        respuesta_comprador = "El comprador debe adquirir el terreno."
+
+    print('\n-------- RESULTADOS DEL ANÁLISIS DE COMPRA DE BIENES --------\n')
+    print(f'El valor de los bienes es ${valor_bien:,}, respectivamente.')
+    print(f'Devaluación acumulada del automóvil en 3 años: '
+          f'${valor_devaluacion_anio:,}')
+    print(f'Valorización acumulada del terreno en 3 años: '
+          f'${valor_valorizacion_anio:,}')
+    print(respuesta_comprador)
 else:
-    respuesta_comprador = "El comprador debe adquirir el terreno."
-
-print('\n---------- RESULTADOS DEL ANÁLISIS DE COMPRA DE BIENES ----------\n')
-print(f'El valor de los bienes es ${valor_bien:,}, respectivamente.')
-print(f'Devaluación acumulada del automóvil en 3 años: '
-      f'${valor_devaluacion_anio:,}')
-print(f'Valorización acumulada del terreno en 3 años: '
-      f'${valor_valorizacion_anio:,}')
-print(respuesta_comprador)
+    print('El valor de los bienes y los porcentajes de devaluación '
+          '/valorización deben ser mayores a cero.')
 
 # 6. En una fábrica de computadoras se planea ofrecer a los clientes un
 # descuento que dependerá del número de computadoreas que
@@ -194,27 +205,26 @@ precio_pc = 11000
 descuento = 0
 precio_total = 0
 precio_bruto = num_pc * precio_pc
-descuento_aplicado = 0
+descuento_aplicado = ""
 if(num_pc > 0):
     if(num_pc < 5):
         descuento = precio_bruto * descuento_uno
-        descuento_aplicado = descuento_uno
+        descuento_aplicado = "descuento aplicado es del 10%, por un monto de: "
     elif(num_pc >= 5 and num_pc < 10):
         descuento = precio_bruto * descuento_dos
-        descuento_aplicado = descuento_dos
+        descuento_aplicado = "descuento aplicado es del 20%, por un monto de: "
     else:
         descuento = precio_bruto * descuento_tres
-        descuento_aplicado = descuento_tres
+        descuento_aplicado = "descuento aplicado es del 40%, por un monto de: "
     precio_total = precio_bruto - descuento
     print('\n---------- RESUMEN DE VENTA DE COMPUTADORES ----------\n')
     print(f'La cantidad de computadores vendidos es: {num_pc}')
-    print(f'El descuento apliado es del {descuento_aplicado * 100}%, '
-          f'y su monto es de: ${descuento:,}')
     print(f'El precio de los computadores antes de descuento es: '
           f'${precio_bruto:,}')
+    print(f'El {descuento_aplicado}${descuento:,}')
     print(f'El precio de los computadores con descuento es: ${precio_total:,}')
 else:
-    print('La cantidad de computadores a vender debe ser mayor a 0')
+    print('\nLa cantidad de computadores a vender debe ser mayor a 0')
 
 # 7. Un proveedor de estéreos ofrece un descuento del 10% sobre el
 # precio sin IVA, de algún aparato si este cuesta $2000 o más. Además,
@@ -231,56 +241,65 @@ val_desc_precio = 0
 val_desc_marca = 0
 descuento_precio = 10/100
 descuento_marca = 5/100
-iva = num_productos * precio_producto * 16/100
+precio_bruto = 0
 precio_total = 0
 total_descuento = 0
 if(num_productos > 0 and precio_producto > 0 and marca_producto != ""):
+    precio_bruto = num_productos * precio_producto
+    iva = precio_bruto * 16/100
     if(precio_producto < 2000 and marca_producto != "NOSY"):
-        precio_total = (num_productos * precio_producto) + iva
+        precio_total = precio_bruto + iva
         print('\n---------- RESUMEN DE VENTA DE ESTÉREOS ----------\n')
         print('El cliente no obtuvo ningun tipo de descuentos')
         print(f'Cantidad de estéreos de la compra: {num_productos}')
         print(f'Precio unitario de los estéreos: ${precio_producto:,}')
         print(f'Marca de los estéreos: {marca_producto}')
+        print(f'Precio a pagar antes de Iva: ${precio_bruto:,}')
         print(f'El Iva del 16% es: ${iva:,}')
         print(f'El total de la compra más Iva es: ${precio_total:,}')
     elif(precio_producto >= 2000 and marca_producto.upper() == "NOSY"):
-        val_desc_precio = (num_productos * precio_producto) * descuento_precio
-        val_desc_marca = (num_productos * precio_producto) * descuento_marca
+        val_desc_precio = precio_bruto * descuento_precio
+        val_desc_marca = precio_bruto * descuento_marca
         total_descuento = val_desc_precio + val_desc_marca
-        precio_total = (num_productos * precio_producto)-total_descuento + iva
+        precio_total = precio_bruto - total_descuento + iva
         print('\n---------- RESUMEN DE VENTA DE ESTÉREOS ----------\n')
         print('El cliente obtuvo descuentos por precio y marca comprada')
         print(f'Cantidad de estéreos de la compra: {num_productos}')
         print(f'Precio unitario de los estéreos: ${precio_producto:,}')
         print(f'Marca de los estéreos: {marca_producto}')
+        print(f'Precio a pagar antes de Iva y descuentos: ${precio_bruto:,}')
         print(f'El Iva del 16% es: ${iva:,}')
         print(f'El descuento del 10% por precio es: ${val_desc_precio:,}')
         print(f'El descuento del 5% por marca es: ${val_desc_marca:,}')
         print(f'El descuento total es: ${total_descuento:,}')
-        print(f'El total de la compra más Iva es: ${precio_total:,}')
+        print(f'El total de la compra más Iva y descuentos es: '
+              f'${precio_total:,}')
     elif(precio_producto >= 2000 and marca_producto.upper() != "NOSY"):
-        val_desc_precio = (num_productos * precio_producto) * descuento_precio
-        precio_total = (num_productos * precio_producto)-val_desc_precio + iva
+        val_desc_precio = precio_bruto * descuento_precio
+        precio_total = precio_bruto - val_desc_precio + iva
         print('\n---------- RESUMEN DE VENTA DE ESTÉREOS ----------\n')
         print('El cliente obtuvo descuentos por precio')
         print(f'Cantidad de estéreos de la compra: {num_productos}')
         print(f'Precio unitario de los estéreos: ${precio_producto:,}')
         print(f'Marca de los estéreos: {marca_producto}')
+        print(f'Precio a pagar antes de Iva y descuentos: ${precio_bruto:,}')
         print(f'El Iva del 16% es: ${iva:,}')
         print(f'El descuento del 10% por precio es: ${val_desc_precio:,}')
-        print(f'El total de la compra más Iva es: ${precio_total:,}')
+        print(f'El total de la compra más Iva y descuentos es: '
+              f'${precio_total:,}')
     else:
-        val_desc_marca = (num_productos * precio_producto) * descuento_marca
-        precio_total = (num_productos * precio_producto)-val_desc_marca + iva
+        val_desc_marca = precio_bruto * descuento_marca
+        precio_total = precio_bruto - val_desc_marca + iva
         print('\n---------- RESUMEN DE VENTA DE ESTÉREOS ----------\n')
         print('El cliente obtuvo descuentos por marca')
         print(f'Cantidad de estéreos de la compra: {num_productos}')
         print(f'Precio unitario de los estéreos: ${precio_producto:,}')
         print(f'Marca de los estéreos: {marca_producto}')
+        print(f'Precio a pagar antes de Iva y descuentos: ${precio_bruto:,}')
         print(f'El Iva del 16% es: ${iva:,}')
         print(f'El descuento del 5% por precio es: ${val_desc_marca:,}')
-        print(f'El total de la compra más Iva es: ${precio_total:,}')
+        print(f'El total de la compra más Iva y descuentos es: '
+              f'${precio_total:,}')
 else:
     print('\nLa cantidad de artículos y su precio deben ser mayor a 0, asi '
           'mismo la marca debe ser diferente de vacio.')
@@ -371,45 +390,4 @@ if(numero_uno != numero_dos != numero_tres):
               f'{numero_tres}')
 else:
     print('\nLos 3 números ingresados deben ser diferentes.')
-
-
-
-
-
-
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
