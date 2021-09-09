@@ -38,7 +38,7 @@ if(num_camisas > 0 and precio_unitario > 0):
     print(f'Valor del descuento: ${descuento:,}')
     print(f'Precio total con descuento: ${precio_total:,}')
 else:
-    print('El número de camisas y sus precios deben ser mayores a cero\n')
+    print('\nEl número de camisas y sus precios deben ser mayores a cero\n')
 
 # 2. En un supermercado se hace una promoción, mediante la cual el
 # cliente obtiene un descuento dependiendo de un número que se
@@ -46,7 +46,7 @@ else:
 # es del 15% sobre el total de la compra, si es mayor o igual a 74 el
 # descuento es del 20%. Obtener cuanto dinero se le descuenta.
 
-
+# Ejecutar import random al inicio de este archivo
 print('\n---------- SORTEO DE DESCUENTOS ----------\n')
 valor_compra = float(input('Ingrese el valor de la compra: '))
 num_sorteo = random.randint(0, 100)
@@ -56,19 +56,22 @@ descuento_uno = 15/100
 descuento_dos = 20/100
 resultado = ""
 
-if(num_sorteo < 74):
-    descuento = valor_compra * descuento_uno
-    precio_total = valor_compra - descuento
-    resultado = "es menor que 74, el cliente ganó un descuento del 15%."
+if(valor_compra > 0):
+    if(num_sorteo < 74):
+        descuento = valor_compra * descuento_uno
+        precio_total = valor_compra - descuento
+        resultado = "es menor que 74, el cliente ganó un descuento del 15%."
+    else:
+        descuento = valor_compra * descuento_dos
+        precio_total = valor_compra - descuento
+        resultado = "es mayor que 74, el cliente ganó un descuento del 20%."
+    print('\n---------- RESULTADOS DEL SORTEO ----------\n')
+    print(f'Precio de la compra: ${valor_compra:,}')
+    print(f'El número del sorteo es {num_sorteo}, este {resultado}')
+    print(f'Valor del descuento: ${descuento:,}')
+    print(f'Precio total con descuento: ${precio_total:,}')
 else:
-    descuento = valor_compra * descuento_dos
-    precio_total = valor_compra - descuento
-    resultado = "es mayor que 74, el cliente ganó un descuento del 20%."
-print('\n---------- RESULTADOS DEL SORTEO ----------\n')
-print(f'Precio de la compra: ${valor_compra:,}')
-print(f'El número del sorteo es {num_sorteo}, este {resultado}')
-print(f'Valor del descuento: ${descuento:,}')
-print(f'Precio total con descuento: ${precio_total:,}')
+    print('\nEl precio de la compra debe ser mayor a cero.')
 
 # 3. Una compañía de seguros está abriendo un departamento de
 # finanzas y estableció un programa para captar clientes, que consite
@@ -136,7 +139,7 @@ if(ganancias > 0):
     if(contaminacion > 170):
         multa = ganancias * 50 / 100
         print(f'La empresa no supero la prueba de contaminación, '
-              f'fue multada por un monto de: ${multa:,} y debe detener sus '
+              f'fue multada por un monto de ${multa:,} y debe detener sus '
               f'operaciones durante una semana.')
     else:
         print('La empresa supero la prueba de contaminación, '
@@ -183,7 +186,7 @@ if(valor_bien > 0 and tasa_devaluacion > 0 and tasa_valorizacion > 0):
           f'${valor_valorizacion_anio:,}')
     print(respuesta_comprador)
 else:
-    print('El valor de los bienes y los porcentajes de devaluación '
+    print('\nEl valor de los bienes y los porcentajes de devaluación '
           '/valorización deben ser mayores a cero.')
 
 # 6. En una fábrica de computadoras se planea ofrecer a los clientes un
@@ -311,7 +314,7 @@ else:
 # la capacidad de invertir de su propio dinero un 55% del monto de la
 # compra, pedir prestado al banco un 30% y el resto lo pagará
 # solicitando un crédito al fabricante. Si el monto total de la compra no
-# excede de $500.00 la empresa tendrá capacidad de invertir de su
+# excede de $500.000 la empresa tendrá capacidad de invertir de su
 # propio dinero un 70% y el restante 30% lo pagará solicitando crédito
 # al fabricante. El fabricante cobra por concepto de interes un 20%
 # sobre la cantidad que se le pague a crédito. Obtener la cantidad a
@@ -359,6 +362,7 @@ numero_uno = float(input('Ingrese primer número: '))
 numero_dos = float(input('Ingrese segundo número: '))
 resultado = 0
 respuesta = ""
+
 if(numero_uno == numero_dos):
     resultado = numero_uno * numero_dos
     respuesta = "multiplicación de "
@@ -368,7 +372,7 @@ elif(numero_uno > numero_dos):
 else:
     resultado = numero_uno + numero_dos
     respuesta = "suma de "
-print(f'\nLa {respuesta} {numero_uno} y {numero_dos} es: {resultado}')
+print(f'\nLa {respuesta}{numero_uno} y {numero_dos} es: {resultado}')
 
 # 10. Leer tres números diferentes e imprimir el número mayor de los tres.
 
@@ -390,4 +394,3 @@ if(numero_uno != numero_dos != numero_tres):
               f'{numero_tres}')
 else:
     print('\nLos 3 números ingresados deben ser diferentes.')
-    
